@@ -27,4 +27,5 @@ function save() {
     countEl.innerText = 0
     count = 0
     // 5. Also reset the count to 0 after saving
+    
 }
