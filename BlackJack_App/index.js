@@ -4,7 +4,7 @@ let cards = [firstCard, secondCard]
 
 let sum = firstCard + secondCard
 let hasBlackJack = false
-let isAlive = true
+let isAlive = false
 let message = ""
 
 // 1. Store the message-el paragraph in a variable called messageEl
@@ -14,10 +14,27 @@ let sumEl = document.getElementById("sum-el")
 let cardsEl = document.getElementById("cards-el")
 
 function getRandomCard() {
-    return 5
+    let randomNumber = Math.floor(Math.random() * 13) + 1
+    if (randomNumber > 10) {
+        return 10
+    } else if (randomNumber === 1) {
+        return 11
+    } else {
+        return randomNumber
+    }   
+    
 }
 
 function startGame() {
+    // 1. Set isAlive to true       
+    isAlive = true
+    // 2. Set the sum to 0
+    sum = 0
+
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    let cards = [firstCard, secondCard]
+    sum = firstCard + secondCard
     // 3. Call renderGame() to render the message
     renderGame()
 }
